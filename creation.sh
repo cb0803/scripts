@@ -1,12 +1,10 @@
 #!/bin/bash
-mysql=""
-
 apt-get -y update
 apt-get -y upgrade
-apt-get -y install sshpass apache2 php mysql-server zip unzip
+apt-get -y install sshpass apache2 php php-mysql mysql-server zip unzip
 
 mysql -e "create database client;"
-mysql -e "create user 'client'@'localhost' identified with mysql_native_password by '$mysql';"
+mysql -e "create user 'client'@'localhost' identified with mysql_native_password by '';"
 mysql -e "grant all privileges on client.* to 'client'@'localhost';"
 mysql -e "flush privileges;"
 
